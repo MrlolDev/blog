@@ -20,15 +20,17 @@ const posts = (await getCollection('blog')).sort(
 	<body class="bg-theme-background text-white ">
 		<Header />
 		<main class="mt-6 flex flex-col justify-between min-h-[85vh] h-full w-[100vw] m-0 p-0">
-			<section class="flex flex-col items-start justify-start h-full px-6">
+			<div class="flex flex-row items-start w-full px-80">
+
+			<section class="flex flex-col items-start justify-start h-full w-full pr-12 px-6">
 				<h2 class="font-bold text-4xl mb-4">Últimos articulos</h2>
-				<ul class="flex flex-col items-start">
+				<ul class="flex flex-col items-start gap-4 w-full">
 					{
 						posts.map((post) => (
-							<li class="flex flex-col items-start">
+							<li class="flex flex-col items-start w-full rounded-lg px-2 py-1 bg-theme-border/[.8] ">
 								<a href={`/${post.slug}/`}>
 									<h4 class="mb-0 font-semibold text-2xl">{post.data.title}</h4>
-									<p class="date w-fit p-0">
+									<p class="date mb-0 w-fit p-0">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
 								</a>
@@ -37,7 +39,18 @@ const posts = (await getCollection('blog')).sort(
 					}
 				</ul>
 			</section>
-		<Footer />
+			<section class="flex flex-col items-start gap-2 w-[30%]">
+				<h2 class="font-bold text-4xl mb-4">Sobre mi</h2>
+				<p>Hola</p>
+				<section class="flex flex-col items-start gap-2 ">
+					<h3 class="font-bold text-2xl mb-2">Habilidades</h3>
+
+<img src="https://skillicons.dev/icons?i=js,ts,vercel,vscode,nodejs,nextjs,react,nuxtjs,tailwind,md,discord,bots,git,github,githubactions,linux,docker,nginx,html,css,sass,cloudflare,mongodb,mysql,postgres,redis,sqlite,supabase,sequelize,rabbitmq,astro,express,bash,powershell,electron,boostrap,ps&theme=dark" />
+				</section>
+			</section>
+		</div>
+
+			<Footer />
 		</main>
 	</body>
 </html>
