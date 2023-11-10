@@ -5,14 +5,17 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const posts = (await getCollection('blog')).sort(
 	(a:any, b:any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	
@@ -20,36 +23,33 @@ const posts = (await getCollection('blog')).sort(
 	<body class="bg-theme-background text-white ">
 		<Header />
 		<main class="mt-6 flex flex-col justify-between min-h-[85vh] h-full w-[100vw] m-0 p-0">
-			<div class="flex flex-row items-start w-full px-80">
-
-			<section class="flex flex-col items-start justify-start h-full w-full pr-12 px-6">
-				<h2 class="font-bold text-4xl mb-4">Últimos articulos</h2>
+			<div class="flex flex-col md:flex-row items-start w-full px-4 md:px-80">
+				<section class="flex flex-col items-start justify-start h-full w-full md:pr-12 md:px-6">
+				<h2 class="font-bold text-4xl mb-4">{t('articles:last')}</h2>
 				<ul class="flex flex-col items-start gap-4 w-full">
 					{
 						posts.map((post: any) => (
-							<li class="flex flex-col items-start w-full rounded-lg px-2 py-1 bg-theme-border/[.8] ">
-								<a href={`/${post.slug}/`}>
+						<a href={`/${post.slug}/`} class="w-full">
+							<li class="flex flex-col items-start w-full rounded-lg px-2 py-1 bg-theme-border/[.8] transition duration-300 hover:bg-theme-border cursor-pointer">
 									<h4 class="mb-0 font-semibold text-2xl">{post.data.title}</h4>
 									<p class="date mb-0 w-fit p-0">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
-								</a>
 							</li>
-						))
+						</a>
+							))
 					}
 				</ul>
-			</section>
-			<section class="flex flex-col items-start gap-2 w-[30%]">
-				<h2 class="font-bold text-4xl mb-4">Sobre mi</h2>
-				<p>Hola</p>
-				<section class="flex flex-col items-start gap-2 ">
-					<h3 class="font-bold text-2xl mb-2">Habilidades</h3>
-
-<img src="https://skillicons.dev/icons?i=js,ts,vercel,vscode,nodejs,nextjs,react,nuxtjs,tailwind,md,discord,bots,git,github,githubactions,linux,docker,nginx,html,css,sass,cloudflare,mongodb,mysql,postgres,redis,sqlite,supabase,sequelize,rabbitmq,astro,express,bash,powershell,electron,boostrap,ps&theme=dark" />
 				</section>
-			</section>
-		</div>
-
+				<section class="flex flex-col items-start gap-2 w-full md:w-[40%]">
+				<h2 class="font-bold text-4xl mb-4">{t('about')}</h2>
+				<p class="text-sm">{t('about:content')}</p>
+				<section class="flex flex-col items-start gap-2 ">
+					<h3 class="font-bold text-2xl mb-2">{t('about:skills')}</h3>
+					<img src="https://skillicons.dev/icons?i=js,ts,vercel,vscode,nodejs,nextjs,react,nuxtjs,tailwind,md,discord,bots,git,github,githubactions,linux,docker,nginx,html,css,sass,cloudflare,mongodb,mysql,postgres,redis,sqlite,supabase,sequelize,rabbitmq,astro,express,bash,powershell,electron,bootstrap,ps&theme=dark&perline=8" />
+				</section>
+				</section>
+			</div>
 			<Footer />
 		</main>
 	</body>
