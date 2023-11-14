@@ -18,6 +18,6 @@ const page = Astro.props;
 
 const { Content } = await page.render();
 ---
-<BlogPost title={page.data.title} pubDate={page.data.pubDate} lang={lang} slug={slug}>
+<BlogPost title={page.data.title} pubDate={page.data.pubDate} description={page.data.description}>
 <Content/>
 </BlogLayout>
