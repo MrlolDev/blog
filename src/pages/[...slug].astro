@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import BlogPost from '../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('blog')
@@ -14,12 +15,9 @@ export async function getStaticPaths() {
 
 const { lang, slug } = Astro.params;
 const page = Astro.props;
-const formattedDate = page.data.pubDate.toLocaleString(lang);
-import { getLangFromUrl } from '../i18n/utils';
-import BlogPost from '../layouts/BlogPost.astro';
 
 const { Content } = await page.render();
 ---
-<BlogPost {...page.data}>
-	<Content />
-</BlogPost>
+<BlogPost title={page.data.title} pubDate={page.data.pubDate} lang={lang} slug={slug}>
+<Content/>
+</BlogLayout>
