@@ -1,40 +1,35 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import { getLangFromUrl } from '../i18n/utils';
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { getLangFromUrl } from "../i18n/utils";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
 <html lang={lang}>
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body class="bg-theme-background text-white ">
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body class="bg-theme-background text-white">
+    <Header />
+    <article class="min-h-[70vh] py-12 px-32">
+      <header class="flex flex-col items-start gap-2">
+        <div class="title font-bold text-4xl">
+          <h1>{title}</h1>
+        </div>
+        <div class="date">
+          <FormattedDate date={pubDate} />
+        </div>
+      </header>
+      <main></main>
+    </article>
+    <Footer />
+  </body>
 </html>
