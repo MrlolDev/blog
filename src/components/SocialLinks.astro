@@ -1,14 +1,41 @@
-<div class="social-links flex flex-row items-center gap-4 text-brand-primary/[.6] h-full">
-    <a href="https://twitter.com/mrloldev" target="_blank" class="text-current hover:text-brand-primary transition duration-200">
-        <span class="sr-only">Follow me on twitter</span>
-        <i class="fa-brands fa-twitter"></i>
-    </a>
-    <a href="https://github.com/mrloldev" target="_blank" class="text-current hover:text-brand-primary transition duration-200">
-        <span class="sr-only">Follow me on Github</span>
-        <i class="fa-brands fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/leonardo-ollero/" target="_blank" class="text-current hover:text-brand-primary transition duration-200">
-        <span class="sr-only">Follow me on LinkedIn</span>
-        <i class="fa-brands fa-linkedin"></i>
-    </a>
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<div
+  class="social-links flex flex-row items-center gap-4 text-brand-primary/[.6] h-full"
+>
+  <a href={`/${lang == "es" ? "en" : "es"}`}>
+    <img
+      src={lang == "es" ? "/uk.svg" : "/es.svg"}
+      alt={lang == "es" ? "English flag" : "Spanish flag"}
+      class="w-8 h-auto rounded-sm bg-white border-1 border-brand-primary transition duration-200 hover:border-brand-primary/[.6]"
+    />
+  </a>
+
+  <a
+    href="https://twitter.com/mrloldev"
+    target="_blank"
+    class="text-current hover:text-brand-primary transition duration-200"
+  >
+    <span class="sr-only">Follow me on twitter</span>
+    <i class="fa-brands fa-twitter"></i>
+  </a>
+  <a
+    href="https://github.com/mrloldev"
+    target="_blank"
+    class="text-current hover:text-brand-primary transition duration-200"
+  >
+    <span class="sr-only">Follow me on Github</span>
+    <i class="fa-brands fa-github"></i>
+  </a>
+  <a
+    href="https://www.linkedin.com/in/leonardo-ollero/"
+    target="_blank"
+    class="text-current hover:text-brand-primary transition duration-200"
+  >
+    <span class="sr-only">Follow me on LinkedIn</span>
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
 </div>
