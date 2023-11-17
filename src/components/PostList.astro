@@ -21,7 +21,7 @@ const t = useTranslations(lang);
         posts.map((post: any) => (
           <a href={`/${post.slug}`} class="w-full">
             <li class="flex flex-col items-start w-full rounded-lg px-2 py-1 bg-theme-border/[.8] transition duration-300 hover:bg-theme-border cursor-pointer">
-              <h4 class="mb-0 font-semibold text-2xl">{post.data.title}</h4>
+              <h3 class="mb-0 font-semibold text-2xl">{post.data.title}</h3>
               <p class="date mb-0 w-fit p-0">
                 <FormattedDate date={post.data.pubDate} />
               </p>
@@ -31,7 +31,6 @@ const t = useTranslations(lang);
       }
     </ul>
   </section>
-
 
   <AboutMe />
 </div>

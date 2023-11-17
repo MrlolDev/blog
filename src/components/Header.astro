@@ -1,14 +1,15 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
-import SocialLinks from './SocialLinks.astro';
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+import SocialLinks from "./SocialLinks.astro";
 ---
 
-	<nav class="flex flex-row justify-between items-center w-full h-fit  border-b-2 border-theme-border px-4 py-2">
-		<a href="/" class="flex flex-row items-center gap-1">
-			<img src="/logo.png" class="h-12 w-12" />
-			mrlol.me
-		</a>
-		<SocialLinks />
-	</nav>
-
+<nav
+  class="flex flex-row justify-between items-center w-full h-fit border-b-2 border-theme-border px-4 py-2"
+>
+  <a href="/" class="flex flex-row items-center gap-1">
+    <img src="/logo.png" class="h-12 w-12" alt="mrlol logo" />
+     mrlol.me
+  </a>
+  <SocialLinks />
+</nav>
