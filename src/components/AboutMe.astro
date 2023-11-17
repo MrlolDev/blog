@@ -1,0 +1,18 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="flex flex-col items-start gap-2 w-full md:w-[40%]">
+  <h2 class="font-bold text-4xl mb-4">{t("about")}</h2>
+  <p class="text-sm">{t("about:content")}</p>
+  <section class="flex flex-col items-start gap-2">
+    <h3 class="font-bold text-2xl mb-2">{t("about:skills")}</h3>
+    <img
+      src="https://skillicons.dev/icons?i=js,ts,vercel,vscode,nodejs,nextjs,react,nuxtjs,tailwind,md,discord,bots,git,github,githubactions,linux,docker,nginx,html,css,sass,cloudflare,mongodb,mysql,postgres,redis,sqlite,supabase,sequelize,rabbitmq,astro,express,bash,powershell,electron,bootstrap,ps&theme=dark&perline=8"
+      draggable="false"
+    />
+  </section>
+</section>

@@ -5,7 +5,6 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import PostList from "../components/PostList.astro";
-import AboutMe from "../components/AboutMe.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
