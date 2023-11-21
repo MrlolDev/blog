@@ -1,14 +1,14 @@
 ---
-import { getCollection } from 'astro:content'
-import BlogPost from '../../layouts/BlogPost.astro';
+import { getCollection } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-  const pages = await getCollection('blog')
+  const pages = await getCollection("blog");
 
-  const paths = pages.map(page => {
-    const [lang, ...slug] = page.slug.split('/');
-    return { params: { lang, slug: slug.join('/') || undefined }, props: page }
-  })
+  const paths = pages.map((page) => {
+    const [lang, ...slug] = page.slug.split("/");
+    return { params: { lang, slug: slug.join("/") || undefined }, props: page };
+  });
 
   return paths;
 }
@@ -18,6 +18,12 @@ const page = Astro.props;
 
 const { Content } = await page.render();
 ---
-<BlogPost title={page.data.title} pubDate={page.data.pubDate} description={page.data.description} categories={page.data.categories}>
-<Content/>
-</BlogLayout>
+
+<BlogPost
+  title={page.data.title}
+  pubDate={page.data.pubDate}
+  description={page.data.description}
+  categories={page.data.categories}
+>
+  <Content />
+</BlogPost>

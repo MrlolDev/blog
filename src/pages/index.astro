@@ -1,5 +1,28 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import PostList from "../components/PostList.astro";
+import AboutMe from "../components/AboutMe.astro";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<meta http-equiv="refresh" content="0;url=/en/" />
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-theme-background text-white">
+    <Header />
+    <main
+      class="mt-6 flex flex-col justify-between min-h-[85vh] h-full w-[100vw] m-0 p-0"
+    >
+      <PostList />
+      <Footer />
+    </main>
+  </body>
+</html>

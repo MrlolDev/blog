@@ -5,10 +5,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getLangFromUrl } from "../i18n/utils";
+import Tags from "../components/Tags.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate } = Astro.props;
+const { title, description, pubDate, categories } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -21,11 +22,11 @@ const lang = getLangFromUrl(Astro.url);
     <Header />
     <article class="min-h-[70vh] py-12 px-32">
       <header class="flex flex-col items-start gap-2">
-        <div class="title font-bold text-4xl">
-          <h1>{title}</h1>
-        </div>
-        <div class="date">
+        <h1 class="title font-bold text-4xl">{title}</h1>
+        <div class="flex flex-row items-center gap-2">
           <FormattedDate date={pubDate} />
+           •
+          <Tags tags={categories} />
         </div>
       </header>
       <main></main>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<div class="grid grid-cols-3 items-center gap-3">
+  {
+    tags.map((x) => (
+      <a href={`/tags/${x}`}>
+        <div class="rounded-full border text-center border-white px-4 py-2">
+          {x}
+        </div>
+      </a>
+    ))
+  }
+</div>
