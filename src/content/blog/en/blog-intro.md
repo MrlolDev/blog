@@ -35,6 +35,8 @@ So maybe you are thinking these posts are going to be AI-written. The answer is 
 
 ### AI corrections
 
+View corrections [here](https://github.com/MrlolDev/blog/commit/189b6e8e49adf68369b3f935fec72e534810b69e)
+
 | Type     | Number of Errors |
 | -------- | ---------------- |
 | Spelling | 18               |

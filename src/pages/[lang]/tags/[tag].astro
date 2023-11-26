@@ -36,10 +36,10 @@ let tagName = tag
   .split("-")
   .join(" ")
   .split(" ")
-  .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+  .map((s: string) => s.charAt(0).toUpperCase() + s.substring(1))
   .join(" ");
 if (lang == "es") {
-  tagName = SpanishTags[tag];
+  tagName = (SpanishTags[tag] as string) || tagName;
 }
 ---
 
