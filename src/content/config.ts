@@ -21,6 +21,7 @@ export const allTags = [
   "computer-vision",
   "natural-language-processing",
   "neural-networks",
+  "personal",
 ];
 
 export const SpanishTags = {
@@ -31,4 +32,5 @@ export const SpanishTags = {
   "computer-vision": "Visión por Computador",
   "natural-language-processing": "Procesamiento de Lenguaje Natural",
   "neural-networks": "Redes Neuronales",
+  personal: "Personal",
 };

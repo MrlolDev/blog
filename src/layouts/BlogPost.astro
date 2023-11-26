@@ -11,8 +11,6 @@ import Back from "../components/Back.astro";
 type Props = CollectionEntry<"blog">["data"] & {};
 
 const { title, description, pubDate, tags } = Astro.props;
-console.log(Astro);
-// get children
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -34,8 +32,16 @@ const lang = getLangFromUrl(Astro.url);
           <Tags tags={tags} />
         </div>
       </header>
-      <main class="prose prose-lg max-w-none mt-8">
-        <slot />
+      <main class="prose blog-post prose-lg max-w-none mt-8">
+        {
+          tags.includes("draft") ? (
+            <div class="bg-theme-accent text-theme-background p-4 rounded-md">
+              This post is a draft and is not published yet.
+            </div>
+          ) : (
+            <slot />
+          )
+        }
       </main>
     </article>
     <Footer />

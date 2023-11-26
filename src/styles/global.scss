@@ -107,3 +107,11 @@ hr {
 ::-webkit-scrollbar-thumb {
   @apply rounded-md bg-brand-primary/[.7] hover:bg-brand-primary/[.9] cursor-pointer;
 }
+.blog-post {
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  a {
+    @apply text-lol-primary underline;
+  }
+}
