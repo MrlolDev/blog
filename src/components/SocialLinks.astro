@@ -12,7 +12,7 @@ const route = Astro.url.pathname
 <div
   class="social-links flex flex-row items-center gap-4 text-brand-primary/[.6] h-full"
 >
-  <a href={`/${lang == "es" ? "en" : "es"}/${route}`}>
+  <a href={`/${lang == "es" ? "" : "es"}/${route}`}>
     <img
       src={lang == "es" ? "/uk.svg" : "/es.svg"}
       alt={lang == "es" ? "English flag" : "Spanish flag"}
