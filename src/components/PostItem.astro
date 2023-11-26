@@ -13,7 +13,7 @@ const post = Astro.props.post;
       {post.data.title}
       {
         post.data.tags.includes("draft") && (
-          <div class="inline-block ml-2 px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded-full">
+          <div class="inline-block ml-2 px-2 py-1 text-xs font-semibold text-black bg-red-500 rounded-full">
             Draft
           </div>
         )
