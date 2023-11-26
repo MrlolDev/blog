@@ -1,9 +1,14 @@
 ---
 import SocialLinks from "./SocialLinks.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const today = new Date();
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<footer class="flex flex-col items-center justify-center h-fit w-full border-t border-theme-border py-12 gap-6">
-	&copy; {today.getFullYear()} mrlol.me. All rights reserved.
-	<SocialLinks />
+<footer
+  class="flex flex-col items-center justify-center h-fit w-full border-t border-theme-border py-12 gap-6 overflow-hidden text-sm lg:text-base"
+>
+  &copy; {today.getFullYear()} mrlol.me. {t("footer:copyrigth")}
+  <SocialLinks />
 </footer>

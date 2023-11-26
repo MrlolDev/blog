@@ -6,10 +6,13 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getLangFromUrl } from "../i18n/utils";
 import Tags from "../components/Tags.astro";
+import Back from "../components/Back.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {};
 
-const { title, description, pubDate, categories } = Astro.props;
+const { title, description, pubDate, tags } = Astro.props;
+console.log(Astro);
+// get children
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -20,16 +23,20 @@ const lang = getLangFromUrl(Astro.url);
 
   <body class="bg-theme-background text-white">
     <Header />
-    <article class="min-h-[70vh] py-12 px-32">
+    <article class="min-h-[70vh] py-12 px-8 lg:px-32">
       <header class="flex flex-col items-start gap-2">
+        <Back />
         <h1 class="title font-bold text-4xl">{title}</h1>
-        <div class="flex flex-row items-center gap-2">
+        <div
+          class="flex flex-col lg:flex-row items-start lg:items-center gap-2"
+        >
           <FormattedDate date={pubDate} />
-           •
-          <Tags tags={categories} />
+          <Tags tags={tags} />
         </div>
       </header>
-      <main></main>
+      <main class="prose prose-lg max-w-none mt-8">
+        <slot />
+      </main>
     </article>
     <Footer />
   </body>

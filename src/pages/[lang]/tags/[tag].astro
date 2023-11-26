@@ -1,0 +1,74 @@
+---
+import { allTags, SpanishTags } from "../../../content/config";
+import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import BaseHead from "../../../components/BaseHead.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import PostItem from "../../../components/PostItem.astro";
+import Back from "../../../components/Back.astro";
+
+export async function getStaticPaths() {
+  let posts = await getCollection("blog");
+  let paths: any[] = [];
+
+  allTags.forEach((tag) => {
+    let ps = posts
+      .filter((post) => post.data.tags.includes(tag))
+      .sort(
+        (a: any, b: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+      );
+
+    paths.push({ params: { tag, lang: "en" }, props: { ps } });
+    paths.push({ params: { tag, lang: "es" }, props: { ps } });
+  });
+
+  return paths;
+}
+
+const { tag } = Astro.params;
+const { ps } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+// convert - into spaces and put the first letter in uppercase
+let tagName = tag
+  .split("-")
+  .join(" ")
+  .split(" ")
+  .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+  .join(" ");
+if (lang == "es") {
+  tagName = SpanishTags[tag];
+}
+---
+
+<html lang={lang}>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-theme-background text-white overflow-x-hidden">
+    <Header />
+    <main
+      class="mt-6 flex flex-col justify-between min-h-[85vh] h-full w-[100vw] m-0 p-0"
+    >
+      <div
+        class="flex flex-col lg:flex-row items-start w-full px-4 sm:px-28 md:px-32 lg:px-72 pb-6 overflow-hidden"
+      >
+        <section
+          class="flex flex-col items-start justify-start h-full w-full lg:pr-12 lg:px-6"
+        >
+          <Back />
+          <h2 class="font-bold text-4xl mb-4 select-none">
+            {t("articles:category").replace("{category}", tagName)}
+          </h2>
+          <ul class="flex flex-col items-start gap-4 w-full mb-8">
+            {ps.map((post: any) => <PostItem post={post} />)}
+          </ul>
+        </section>
+      </div>
+
+      <Footer />
+    </main>
+  </body>
+</html>

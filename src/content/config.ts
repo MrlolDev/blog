@@ -5,7 +5,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    categories: z.array(z.string()),
+    tags: z.array(z.string()),
   }),
 });
 
@@ -13,7 +13,7 @@ export const collections = {
   blog: blogCollection,
 };
 
-export const allCategories = [
+export const allTags = [
   "artificial-intelligence",
   "machine-learning",
   "deep-learning",
@@ -22,3 +22,13 @@ export const allCategories = [
   "natural-language-processing",
   "neural-networks",
 ];
+
+export const SpanishTags = {
+  "artificial-intelligence": "Inteligencia Artificial",
+  "machine-learning": "Machine Learning",
+  "deep-learning": "Deep Learning",
+  "large-language-models": "Modelos de Lenguaje Grandes(LLMs)",
+  "computer-vision": "Visión por Computador",
+  "natural-language-processing": "Procesamiento de Lenguaje Natural",
+  "neural-networks": "Redes Neuronales",
+};

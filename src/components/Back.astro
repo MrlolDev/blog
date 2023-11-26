@@ -1,0 +1,14 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<a
+  href=`/${lang}`
+  class="text-gray-400 text-sm transition duration-300 hover:text-theme-foreground"
+>
+  <i class="fas fa-arrow-left mr-2"></i>
+  {t("articles:back")}
+</a>
