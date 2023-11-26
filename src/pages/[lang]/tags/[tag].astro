@@ -37,9 +37,9 @@ let tagName = tag
   .join(" ")
   .split(" ")
   .map((s: string) => s.charAt(0).toUpperCase() + s.substring(1))
-  .join(" ");
+  .join(" ") as string;
 if (lang == "es") {
-  tagName = (SpanishTags[tag] as string) || tagName;
+  tagName = (SpanishTags[tag as keyof typeof SpanishTags] as string) || tagName;
 }
 ---
 

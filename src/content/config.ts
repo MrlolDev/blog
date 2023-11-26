@@ -24,7 +24,9 @@ export const allTags = [
   "personal",
 ];
 
-export const SpanishTags = {
+export const SpanishTags: {
+  [key: string]: string;
+} = {
   "artificial-intelligence": "Inteligencia Artificial",
   "machine-learning": "Machine Learning",
   "deep-learning": "Deep Learning",

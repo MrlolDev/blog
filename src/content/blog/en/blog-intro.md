@@ -6,7 +6,7 @@ done: true
 tags: ["personal"]
 ---
 
-So, with this first post, I don't want to introduce myself again because I already did that in the About Me section, which you can find on the first page. I want to write about what I really plan to do with this blog and why I created it. I don't expect anyone to read it since, as I will mention later, this is going to be like a learning diary. First, let's discuss why I created this blog.
+So, with this first post, I don't want to introduce myself again because I already did that in the About Me section, which you can find on the [first page](https://mrlol.me/en). I want to write about what I really plan to do with this blog and why I created it. I don't expect anyone to read it since, as I will mention later, this is going to be like a learning diary. First, let's discuss why I created this blog.
 
 ## Why I created this blog?
 
@@ -16,17 +16,17 @@ Being honest, I created this mainly because of the assignment I have in my TIC c
 
 As I mentioned earlier, what I want to do with this blog is make it a learning diary. I don't want to do what probably all my classmates will do and throw this in the trash and forget it exists. I have always wanted to move to AI, and NO, this is not related to the AI trend. AI has always been my passion for living since probably Boston Dynamics' old videos. This trend is a part of the reason I want to start this journey now. The other reason is that during the last couple of years, where I have been coding websites and backends, I didn't feel ready to jump into AI, and being realistic, I wasn't. AI is based on tensors, and I just studied 2D vectors last week (not the first time though). You can think I am still not ready, but I think I am, and that's all I need. So, answering finally the question, now I have a brand new PC capable of running the biggest open-source models, so I started my journey to [learn AI with PyTorch](https://youtu.be/V_xro1bcAuA?si=DBrHbokYyTiHQJqc). I will be documenting all my learning through this blog so it works as a notebook and a display of my progress and a reminder that I need to learn. Even I have planned some objectives for my journey.
 
-## Objectives of the blog
+## Objectives of the journey
 
 I have some AI models that I want to train, but I also want to write articles about certain topics too.
 
-- [ ] Write about the BASIC AI concepts
-- [ ] Start training basic models to solve mazes
+- [ ] Write about the BASIC AI concepts.
+- [ ] Start training basic models to solve mazes.
 - [ ] Talk about image generation models and what the latent space is.
 - [ ] Talk about transformers and train a basic language model or fine-tune one.
 - [ ] Talk about computer vision and train a cat vs. dog model.
-- [ ] Talk about multimodality and train a model that knows the language with text input or image input (not OCR). Here I have a bet that the model will be able to differentiate between Spanish/English from Arabic but not Spanish and English
-- [ ] Talk about Gaussian splatting
+- [ ] Talk about multimodality and train a model that knows the language with text input or image input (not OCR). Here I have a bet that the model will be able to differentiate between Spanish/English from Arabic but not Spanish and English.
+- [ ] Talk about Gaussian splatting.
       <br></br>
 
 ## How will the blog be written?
