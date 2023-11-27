@@ -19,9 +19,11 @@ export async function getStaticPaths() {
       .sort(
         (a: any, b: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
       );
+    const enPs = ps.filter((p: any) => p.slug.includes("en"));
+    const esPs = ps.filter((p: any) => p.slug.includes("en"));
 
-    paths.push({ params: { tag, lang: "en" }, props: { ps } });
-    paths.push({ params: { tag, lang: "es" }, props: { ps } });
+    paths.push({ params: { tag, lang: "en" }, props: { ps: enPs } });
+    paths.push({ params: { tag, lang: "es" }, props: { ps: esPs } });
   });
 
   return paths;
@@ -29,6 +31,7 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { ps } = Astro.props;
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 // convert - into spaces and put the first letter in uppercase

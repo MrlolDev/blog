@@ -1,18 +1,19 @@
 ---
 import { getLangFromUrl } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
-const route = Astro.url.pathname
+let route = Astro.url.pathname
   .split("/")
   .filter((x) => x != lang)
   .join("/")
   // remove first / if exists
   .replace(/^\//, "");
+console.log(route);
 ---
 
 <div
   class="social-links flex flex-row items-center gap-4 text-brand-primary/[.6] h-full"
 >
-  <a href={`/${lang == "es" ? "" : "es"}/${route}`}>
+  <a href={`${lang == "es" ? "/en" : "/es"}${route != "" ? `/${route}` : ""}`}>
     <img
       src={lang == "es" ? "/uk.svg" : "/es.svg"}
       alt={lang == "es" ? "English flag" : "Spanish flag"}

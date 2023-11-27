@@ -15,6 +15,7 @@ export const ui = {
     "articles:tags": "Articles by categories",
     "articles:category": "Articles in category {category}",
     "articles:back": "Back to articles",
+    "articles:draft": "Draft",
   },
   es: {
     "footer:copyrigth": "Todos los derechos reservados",
@@ -26,5 +27,6 @@ export const ui = {
     "articles:tags": "Artículos por categorías",
     "articles:category": "Artículos en la categoría {category}",
     "articles:back": "Volver a artículos",
+    "articles:draft": "Borrador",
   },
 } as const;
