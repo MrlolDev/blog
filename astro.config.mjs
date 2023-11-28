@@ -11,7 +11,7 @@ export default defineConfig({
     i18n: {
       defaultLocale: "en",
       locales: ["en", "es"],
-      routingStrategy: "prefix-other-locales",
+      routingStrategy: "prefix-always",
     },
   },
   integrations: [mdx(), sitemap(), tailwind()],

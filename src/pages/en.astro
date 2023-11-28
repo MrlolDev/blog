@@ -5,22 +5,11 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getLangFromUrl } from "../i18n/utils";
 import PostList from "../components/PostList.astro";
+import Base from "../layouts/Base.astro";
 
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<!doctype html>
-<html lang={lang}>
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="bg-theme-background text-white overflow-x-hidden">
-    <Header />
-    <main
-      class="mt-6 flex flex-col justify-between min-h-[85vh] h-full w-[100vw] m-0 p-0"
-    >
-      <PostList />
-      <Footer />
-    </main>
-  </body>
-</html>
+<Base>
+  <PostList />
+</Base>

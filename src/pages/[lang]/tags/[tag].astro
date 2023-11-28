@@ -8,6 +8,7 @@ import BaseHead from "../../../components/BaseHead.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
 import PostItem from "../../../components/PostItem.astro";
 import Back from "../../../components/Back.astro";
+import Base from "../../../layouts/Base.astro";
 
 export async function getStaticPaths() {
   let posts = await getCollection("blog");
@@ -46,32 +47,20 @@ if (lang == "es") {
 }
 ---
 
-<html lang={lang}>
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="bg-theme-background text-white overflow-x-hidden">
-    <Header />
-    <main
-      class="mt-6 flex flex-col justify-between min-h-[85vh] h-full w-[100vw] m-0 p-0"
+<Base>
+  <div
+    class="flex flex-col lg:flex-row items-start w-full px-4 sm:px-28 md:px-32 lg:px-72 pb-6 overflow-hidden"
+  >
+    <section
+      class="flex flex-col items-start justify-start h-full w-full lg:pr-12 lg:px-6"
     >
-      <div
-        class="flex flex-col lg:flex-row items-start w-full px-4 sm:px-28 md:px-32 lg:px-72 pb-6 overflow-hidden"
-      >
-        <section
-          class="flex flex-col items-start justify-start h-full w-full lg:pr-12 lg:px-6"
-        >
-          <Back />
-          <h2 class="font-bold text-4xl mb-4 select-none">
-            {t("articles:category").replace("{category}", tagName)}
-          </h2>
-          <ul class="flex flex-col items-start gap-4 w-full mb-8">
-            {ps.map((post: any) => <PostItem post={post} />)}
-          </ul>
-        </section>
-      </div>
-
-      <Footer />
-    </main>
-  </body>
-</html>
+      <Back />
+      <h2 class="font-bold text-4xl mb-4 select-none">
+        {t("articles:category").replace("{category}", tagName)}
+      </h2>
+      <ul class="flex flex-col items-start gap-4 w-full mb-8">
+        {ps.map((post: any) => <PostItem post={post} />)}
+      </ul>
+    </section>
+  </div>
+</Base>
