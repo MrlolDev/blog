@@ -52,12 +52,19 @@ const t = useTranslations(lang);
               This post is a draft and is not published yet.
             </div>
           ) : (
-            <slot />
-            <p class="flex flex-row items-center mt-12 ">
-              {t("articles:error")}
-              <a href={`https://github.com/MrlolDev/blog/tree/main/src/content/blog/${slug}`}>{" "}
-                {t("articles:correct")}
-                </a>              </p>
+            <>
+              <slot />
+              <p class="flex flex-row items-center mt-12 ">
+                {t("articles:error")}
+                <a
+                  href={`https://github.com/MrlolDev/blog/edit/main/src/content/blog/${slug}.md`}
+                  target="_blank"
+                >
+                  {"  "}
+                  {t("articles:correct")}
+                </a>
+              </p>
+            </>
           )
         }
       </main>
