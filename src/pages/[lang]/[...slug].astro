@@ -23,6 +23,7 @@ const { Content } = await page.render();
   pubDate={page.data.pubDate}
   description={page.data.description}
   tags={page.data.tags}
+  slug={page.slug}
 >
   <Content />
 </BlogPost>

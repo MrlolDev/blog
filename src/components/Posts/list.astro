@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import AboutMe from "./AboutMe.astro";
-import Tags from "./Tags.astro";
-import { allTags } from "../content/config";
-import PostItem from "./PostItem.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import AboutMe from "../AboutMe.astro";
+import Tags from "./tags.astro";
+import { allTags } from "../../content/config";
+import PostItem from "./item.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const posts = (await getCollection("blog"))

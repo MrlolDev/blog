@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import FormattedDate from "./FormattedDate.astro";
 
 const post = Astro.props.post;
@@ -14,6 +14,7 @@ const t = useTranslations(lang);
   >
     <h3
       class="mb-0 font-semibold text-2xl flex flex-col lg:flex-row lg:items-center items-start"
+      transition:name="post-title"
     >
       {post.data.title}
       {

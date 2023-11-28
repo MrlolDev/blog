@@ -2,11 +2,7 @@
 import { allTags, SpanishTags } from "../../../content/config";
 import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
-import Header from "../../../components/Header.astro";
-import Footer from "../../../components/Footer.astro";
-import BaseHead from "../../../components/BaseHead.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
-import PostItem from "../../../components/PostItem.astro";
+import PostItem from "../../../components/Posts/item.astro";
 import Back from "../../../components/Back.astro";
 import Base from "../../../layouts/Base.astro";
 
@@ -30,7 +26,8 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { tag } = Astro.params;
+const params = Astro.params;
+const tag = params.tag as string;
 const { ps } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
