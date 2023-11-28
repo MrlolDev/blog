@@ -16,6 +16,8 @@ export const ui = {
     "articles:category": "Articles in category {category}",
     "articles:back": "Back to articles",
     "articles:draft": "Draft",
+    "articles:error": "Do you see any error?",
+    "articles:correct": "Correct it here",
   },
   es: {
     "footer:copyrigth": "Todos los derechos reservados",
@@ -28,5 +30,7 @@ export const ui = {
     "articles:category": "Artículos en la categoría {category}",
     "articles:back": "Volver a artículos",
     "articles:draft": "Borrador",
+    "articles:error": "¿Ves algún error?",
+    "articles:correct": "Corrigelo aquí",
   },
 } as const;
