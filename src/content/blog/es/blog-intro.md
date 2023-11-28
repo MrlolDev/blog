@@ -35,7 +35,7 @@ Así que tal vez tú estás pensando que estos posts serán escritos por AI. La 
 
 ### AI corrections
 
-Ver correcciones [aquí](https://github.com/MrlolDev/blog/commit/189b6e8e49adf68369b3f935fec72e534810b69e)
+Ver correcciones [aquí](https://github.com/MrlolDev/blog/commit/ec312097fc531bf41ac01c87f57540c22acdae5e)
 
 | Tipo       | Número de errores |
 | ---------- | ----------------- |
