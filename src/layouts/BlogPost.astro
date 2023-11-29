@@ -22,14 +22,19 @@ const t = useTranslations(lang);
     <BaseHead title={title} description={description} />
   </head>
 
-  <body class="bg-theme-background text-white">
+  <body
+    class="bg-theme-background dark:bg-dark-background text-theme-text dark:text-dark-text"
+  >
     <Header />
     <article class="min-h-[70vh] py-12 px-8 lg:px-32">
-      <header class="flex flex-col items-start gap-2">
+      <header
+        class="flex flex-col items-start gap-2"
+        transition:name={`post-hero-${slug}`}
+      >
         <Back />
         <h1
           class="title font-bold text-4xl flex flex-col items-start lg:flex-row lg:items-center"
-          transition:name="post-title"
+          transition:name={`post-title-${slug}`}
         >
           {title}
           <div
@@ -40,6 +45,7 @@ const t = useTranslations(lang);
         </h1>
         <div
           class="flex flex-col lg:flex-row items-start lg:items-center gap-2"
+          transition:name={`post-date-${slug}`}
         >
           <FormattedDate date={pubDate} />
           <Tags tags={tags} />
@@ -48,7 +54,7 @@ const t = useTranslations(lang);
       <main class="prose blog-post prose-lg max-w-none mt-8">
         {
           tags.includes("draft") ? (
-            <div class="bg-theme-accent text-theme-background p-4 rounded-md">
+            <div class="bg-theme-accent text-theme-text dark:text-dark-text  dark:p-4 rounded-md">
               This post is a draft and is not published yet.
             </div>
           ) : (

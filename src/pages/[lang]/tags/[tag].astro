@@ -53,7 +53,10 @@ if (lang == "es") {
     >
       <Back />
       <h2 class="font-bold text-4xl mb-4 select-none">
-        {t("articles:category").replace("{category}", tagName)}
+        {t("articles:category").replace("{category}", "")}
+        <b class="text-brand-primary" transition:name={`tag-${tag}`}
+          >{tagName}</b
+        >
       </h2>
       <ul class="flex flex-col items-start gap-4 w-full mb-8">
         {ps.map((post: any) => <PostItem post={post} />)}

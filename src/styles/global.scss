@@ -105,14 +105,14 @@ hr {
   @apply bg-none;
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-md bg-brand-primary/[.7] hover:bg-brand-primary/[.9] cursor-pointer;
+  @apply rounded-md bg-theme-text/[.7] hover:bg-theme-text/[.9] cursor-pointer dark:bg-dark-text/[.7] dark:hover:bg-dark-text/[.9];
 }
 .blog-post {
   h2 {
     @apply text-3xl font-bold;
   }
   a {
-    @apply text-lol-primary underline;
+    @apply text-brand-primary underline;
   }
   h3 {
     @apply text-2xl font-bold;

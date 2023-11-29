@@ -9,12 +9,14 @@ const lang = getLangFromUrl(Astro.url);
 const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang}>
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="bg-theme-background min-h-screen text-white overflow-x-hidden">
+  <body
+    class="bg-theme-background dark:bg-dark-background min-h-screen text-theme-text dark:text-dark-text overflow-x-hidden"
+  >
     <Header />
     <main
       class="mt-6 flex flex-col justify-between min-h-[85vh] h-full w-[100vw] m-0 p-0"

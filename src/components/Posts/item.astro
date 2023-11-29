@@ -10,11 +10,12 @@ const t = useTranslations(lang);
 <li class="w-full">
   <a
     href={`/${post.slug}`}
-    class="flex flex-col items-start w-full rounded-lg px-2 py-1 bg-theme-border/[.8] transition duration-300 hover:bg-theme-border cursor-pointer"
+    class="flex flex-col items-start w-full rounded-lg px-2 py-1 bg-theme-border/[.8] dark:bg-dark-border/[.8] transition duration-300 hover:bg-theme-border hover:dark:bg-dark-border cursor-pointer"
+    transition:name={`post-hero-${post.slug}`}
   >
     <h3
       class="mb-0 font-semibold text-2xl flex flex-col lg:flex-row lg:items-center items-start"
-      transition:name="post-title"
+      transition:name={`post-title-${post.slug}`}
     >
       {post.data.title}
       {
@@ -25,7 +26,7 @@ const t = useTranslations(lang);
         )
       }
     </h3>
-    <p class="date mb-0 w-fit p-0">
+    <p class="date mb-0 w-fit p-0" transition:name={`post-date-${post.slug}`}>
       <FormattedDate date={post.data.pubDate} />
     </p>
   </a>

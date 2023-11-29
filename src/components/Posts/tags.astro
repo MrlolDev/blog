@@ -2,9 +2,10 @@
 import { getLangFromUrl } from "../../i18n/utils";
 interface Props {
   tags: string[];
+  where?: "post" | "page";
 }
 
-const { tags } = Astro.props;
+const { tags, where = "post" } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -12,7 +13,10 @@ const lang = getLangFromUrl(Astro.url);
   {
     tags.map((x) => (
       <a href={`/${lang}/tags/${x}`}>
-        <div class="rounded-full border text-sm  text-center border-white px-4 py-2">
+        <div
+          class="rounded-full border text-sm  text-center border-theme-text dark:border-dark-text px-4 py-2"
+          transition:name={`tag-${x}`}
+        >
           {x}
         </div>
       </a>
