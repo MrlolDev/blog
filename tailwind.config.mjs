@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: ["class"],
@@ -26,6 +28,9 @@ export default {
           primary: "#ffe000",
           secondary: "#019cdb",
         },
+      },
+      fontFamily: {
+        sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
       },
     },
   },
