@@ -1,10 +1,12 @@
 ---
-
+import { getLangFromUrl } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <button
   id="themeToggle"
   class="b-0 bg-none text-theme-text/[.6] hover:text-theme-text dark:text-dark-text/[.6] dark:hover:text-dark-text transition duration-300 outline-none focus:outline-none"
+  onclick="switchTheme()"
 >
   <svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path
@@ -29,14 +31,7 @@
   }
 </style>
 
-<script>
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-
-  const themeToggle = document.querySelector(
-    "#themeToggle"
-  ) as HTMLButtonElement;
-  const currentTheme = localStorage.getItem("theme");
-  themeToggle.addEventListener("click", () => switchTheme());
+<script is:inline>
   function switchTheme() {
     if (localStorage.theme === "dark") {
       document.documentElement.classList.remove("dark");
